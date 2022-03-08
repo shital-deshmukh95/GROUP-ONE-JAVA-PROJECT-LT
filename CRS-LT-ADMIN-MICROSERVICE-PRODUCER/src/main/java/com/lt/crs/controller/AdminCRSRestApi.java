@@ -21,6 +21,7 @@ import com.crs.lt.exceptions.CourseNotDeletedException;
 import com.crs.lt.exceptions.CourseNotFoundException;
 import com.crs.lt.exceptions.StudentException;
 import com.lt.crs.model.Catalog;
+import com.lt.crs.model.Student;
 import com.lt.crs.service.AdminService;
 /**
  * 
@@ -54,16 +55,33 @@ public class AdminCRSRestApi {
 	 * @param course
 	 * @return
 	 */
-		 @RequestMapping(method = RequestMethod.POST,value = "/admin/addCourse")
-			@ResponseBody
-		    public ResponseEntity<?> addCourse(@RequestBody Catalog course)  {
-			
-		       
-			//	adminService.addCourse(course, courseList);
-				//List<Catalog> courseListView = adminService.viewCourses();
-				return ResponseEntity.status(HttpStatus.OK).body(null);
-		       
-		    }
+	@RequestMapping(method = RequestMethod.POST,value = "/admin/addCourse")
+	@ResponseBody
+	public ResponseEntity<?> addCourse(@RequestBody Catalog course) {
+
+	List<Catalog> courseListView = adminService.viewCourses();
+	boolean result = false ;
+
+	try {
+		System.out.println("Cosumer : addCourse");
+	result = adminService.addCourse(course, courseListView);
+	}
+	catch (CourseExistsAlreadyException e) {
+	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+	}
+	catch (Exception e) {
+	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+	}
+
+
+
+
+	if(result==true)
+	return ResponseEntity.status(HttpStatus.OK).body("Course added Sucessfully");
+	else
+	return ResponseEntity.status(HttpStatus.OK).body("Failed to Add course to Catalog");
+
+	}
 		
 		 /**
 		  * 
@@ -111,6 +129,24 @@ public class AdminCRSRestApi {
 		}
 		return ResponseEntity.status(400).body("Admission Request for student with student ID: " + studentId + " cannot be approved.") ;
 
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.GET,value = "/viewPendingAdmissions")
+	@ResponseBody
+	public ResponseEntity<?> viewPendingAdmissions(){
+		List<Student> list =  new ArrayList<Student>(); 
+		try {
+			
+			list = adminService.viewPendingAdmissions();
+			
+		} catch (StudentException e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+		}
+		catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}
 	//
 	//		 private List<Student> viewPendingAdmissions() throws SQLException {

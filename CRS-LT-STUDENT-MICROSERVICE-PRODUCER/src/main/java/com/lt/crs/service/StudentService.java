@@ -1,19 +1,18 @@
 package com.lt.crs.service;
 
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.crs.lt.exceptions.CourseNotFoundException;
-import com.crs.lt.exceptions.SeatNotAvailableException;
 import com.crs.lt.exceptions.StudentException;
 import com.lt.crs.model.Course;
 import com.lt.crs.model.PaymentInfo;
@@ -101,6 +100,7 @@ public class StudentService {
 	 * @return
 	 * @throws StudentException
 	 */
+	@Transactional
 	public boolean dropCourse(String courseCode, String studentId) throws StudentException {
 		Optional<Student> student = studentRepository.findById(studentId);
 
@@ -113,20 +113,21 @@ public class StudentService {
 		}
 
 		RegisteredCourse registerCoursedelete=new RegisteredCourse();
-		Optional<RegisteredCourse> r=registeredCourseRepository.findById(studentId);
-		System.out.println("coursecode"+r.get().getCourseCode());
-		System.out.println("studentid"+r.get().getStudentId());
-		registerCoursedelete.setCourseCode(r.get().getCourseCode());
-		registerCoursedelete.setStudentId(r.get().getStudentId());
-		registerCoursedelete.setGrade(r.get().getGrade());
+//		//Optional<RegisteredCourse> r=registeredCourseRepository.findById(studentId);
+//		System.out.println("coursecode"+r.get().getCourseCode());
+//		System.out.println("studentid"+r.get().getStudentId());
+//		registerCoursedelete.setCourseCode(r.get().getCourseCode());
+//		registerCoursedelete.setStudentId(r.get().getStudentId());
+//		registerCoursedelete.setGrade(r.get().getGrade());
 		Optional<Course> c=courseRepository.findById(courseCode);
 		if(c.isPresent()) {
 			Course course=c.get();
 			course.setAvailableSeats(c.get().getAvailableSeats()+1);
 			courseRepository.save(course);
 		}
-		registeredCourseRepository.delete(registerCoursedelete);
-		System.out.println("delete"+registerCoursedelete);
+		
+		int a = registeredCourseRepository.deleteByCourseCodeAndStudentId(courseCode,studentId);
+		System.out.println("delete"+a);
 
 		return true;
 	}

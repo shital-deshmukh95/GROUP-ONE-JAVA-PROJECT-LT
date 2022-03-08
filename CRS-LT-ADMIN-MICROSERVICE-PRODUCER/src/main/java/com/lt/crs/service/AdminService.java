@@ -2,6 +2,7 @@ package com.lt.crs.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -99,8 +100,10 @@ public class AdminService {
 	 * @param courseList
 	 * @throws CourseExistsAlreadyException
 	 */
-	public void addCourse(Catalog course, List<Catalog> courseList) throws CourseExistsAlreadyException {
+	public boolean addCourse(Catalog course, List<Catalog> courseList) throws CourseExistsAlreadyException {
+		boolean result = false ;
 		try {
+			
 			if(!isValidAddCourse(course, courseList)) {
 				System.out.println("courseCode: " + course.getCourseCode() + " already present");
 				throw new CourseExistsAlreadyException(course.getCourseCode());
@@ -109,11 +112,15 @@ public class AdminService {
 			catalogCourse.setCourseCode(course.getCourseCode());
 			catalogCourse.setCourseName(course.getCourseName());
 			catalogCourse.setDescription(course.getDescription());
-			catalogRepository.save(catalogCourse);
+			Catalog  cat = catalogRepository.save(catalogCourse);
+			if(cat!=null) {
+				result = true;	
+			}
 		}
 		catch(CourseExistsAlreadyException e) {
 			throw e;
 		}
+		return result;
 		
 	}
 	/**
@@ -129,6 +136,18 @@ public class AdminService {
 			}
 		}
 		return true;
+	}
+	
+	public List<Student> viewPendingAdmissions() throws StudentException{
+		List<Student> list = studentRepository.findAll();
+		
+		list.forEach(stud->{
+			
+			System.out.println(stud);
+		});
+		list  =	list.stream().filter(stud->stud.getIsApproved().equals("0")).collect(Collectors.toList());
+		return list;
+		
 	}
 
 	

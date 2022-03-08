@@ -13,15 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-//import com.crs.lt.bean.EnrolledStudent;
-//import com.crs.lt.business.ProfessorService;
-//import com.crs.lt.business.UserService;
-//import com.crs.lt.controller.Logger;
-//import com.crs.lt.controller.ProfessorRestApi;
-
-
-import com.crs.lt.exceptions.UserNotFoundException;
 import com.lt.crs.model.EnrolledStudent;
 import com.lt.crs.model.Professor;
 import com.lt.crs.service.ProfessorService;
@@ -48,6 +39,7 @@ public class ProfessorCRSRestApi
 			@RequestParam(value ="courseID") String courseID, @RequestParam(value ="grade") String grade) {
 		boolean result;
 		try {
+			
 			result = professorService.addGrade(studentID, courseID, grade);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());

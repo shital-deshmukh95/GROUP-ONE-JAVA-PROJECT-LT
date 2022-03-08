@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 @SpringBootApplication
-@ComponentScan("com.lt.crs.*")
+@ComponentScan("com.crs.lt.*")
 @EnableAutoConfiguration
 @EnableWebMvc
 @EnableEurekaClient

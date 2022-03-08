@@ -1,6 +1,7 @@
 package com.lt.crs.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.lt.crs.model.Student;
 /**
@@ -8,7 +9,8 @@ import com.lt.crs.model.Student;
  * @author user215
  *
  */
-public interface StudentRepository extends CrudRepository<Student, String> {
+@Repository
+public interface StudentRepository extends JpaRepository<Student, String> {
 
 	
 	

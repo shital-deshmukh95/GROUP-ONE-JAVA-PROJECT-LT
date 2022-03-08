@@ -105,6 +105,8 @@ public class StudentCRSRestApi {
 			@RequestParam(value = "studentId") String studentId) throws SQLException {
 
 		try {
+			
+			System.out.println("Producer : Consumer");
 			boolean result = studentService.dropCourse(courseCode,studentId);
 		} catch (StudentException e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -149,6 +151,8 @@ public class StudentCRSRestApi {
 		PaymentInfo result =  new PaymentInfo();
 		try {
 			result =  studentService.makePayment(studentId);
+			
+			System.out.println("makePayment");
 		} catch (StudentException e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}catch (Exception e) {
