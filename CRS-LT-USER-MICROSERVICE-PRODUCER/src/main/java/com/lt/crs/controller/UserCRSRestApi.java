@@ -31,7 +31,8 @@ import com.lt.crs.service.UserService;
 public class UserCRSRestApi {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
+	
 
 	/**
 	 * 
@@ -168,6 +169,7 @@ public class UserCRSRestApi {
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(" you are successfully registered, please wait for Admin's Approval" + result);
 	}
+	
 
 
 }
