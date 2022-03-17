@@ -156,15 +156,17 @@ public class UserCRSRestApi {
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/register")
 	@ResponseBody
-	public ResponseEntity<?> register(@RequestBody Student student) throws Exception {
+	public ResponseEntity<?> register(@RequestBody Student student) throws StudentException , Exception {
 		boolean result = false ;
 		try {
 			result = userService.register(student);
 		}
 		catch (StudentException e) {
+			
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
 		catch (Exception e) {
+			
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(" you are successfully registered, please wait for Admin's Approval" + result);

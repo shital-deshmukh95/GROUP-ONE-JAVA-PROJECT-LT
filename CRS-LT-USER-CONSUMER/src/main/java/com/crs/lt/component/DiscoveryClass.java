@@ -13,6 +13,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -41,7 +42,7 @@ DiscoveryClient discoveryClient;
 
 
 
-public ResponseEntity<String> discoveryResult(String clientName, String producerUrl, HttpMethod http, Map<String,Object> requestBody){
+public ResponseEntity<String> discoveryResult(String clientName, String producerUrl, HttpMethod http, Map<String,Object> requestBody) throws RestClientException, IOException{
 
 
 
@@ -64,15 +65,11 @@ RestTemplate restTemplate = new RestTemplate();
 
 ResponseEntity<String> response=null;
 
-try {
+
 
 response=restTemplate.exchange(baseUrl,http, getHeaders(requestBody),String.class);
 
-} catch (Exception ex) {
 
-//TODO
-
-}
 
 
 
