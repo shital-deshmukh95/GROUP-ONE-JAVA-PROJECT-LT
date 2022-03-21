@@ -1,0 +1,20 @@
+.radio{
+
+    margin: 10px;
+}
+.container{
+margin-top: 70px;
+background-color:rgb(236, 119, 158)
+
+}
+
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .custom-btn{
+    
+    margin: 10px;
+    align-self: center;
+    }

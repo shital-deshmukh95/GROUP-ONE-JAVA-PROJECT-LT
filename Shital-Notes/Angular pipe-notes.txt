@@ -1,0 +1,52 @@
+Todays Agenda -
+1] Angular pipe.
+2] Angular Directive .
+3] Angular service implementation.
+4] JSON server creation.
+
+
+1] Angular Pipe --
+  1.1] Angular pipe are use to do the filter on model data 
+  1.2] We are using @Pipe decorator in pipe devlopment
+  1.3] There are two type of pipe in angular 
+         1] Internal pipe.(Date ,UpperCase, LowerCase,Currency)
+		 - Date type format
+		 2] External pipe.(We can create the external pipe using the command   ng g pipe pipeName )
+		
+		
+4] JSON server creation 
+		
+		
+		
+		
+		json-server --port 7000 --routes routes.json --watch users.json
+		
+		
+		
+		 
+		 
+		Link : https://angular.io/guide/pipes
+		
+		
+		
+		Step  1 ] Internal pipe  mycomponent.html
+		  <tr *ngFor="let cust of custArray; let indexValue=index">
+         <th>{{cust.name|lowercase}} </th> 
+          <th>{{cust.age  }} </th>
+         <th><button (click)="selectValue(indexValue)"> Edit </button> </th>
+         <th><button (click)="deleteCustomer(indexValue)">Delete</button> </th>
+        </tr>
+  Step  2 ] Internal pipe  mycomponent.html
+     <tr *ngFor="let cust of custArray; let indexValue=index">
+         <th>{{cust.name|uppercase}} </th> 
+          <th>{{cust.age  }} </th>
+         <th><button (click)="selectValue(indexValue)"> Edit </button> </th>
+         <th><button (click)="deleteCustomer(indexValue)">Delete</button> </th>
+        </tr>
+		
+		step 4] add date variable in app.component.ts
+		
+		today = new Date();
+		
+		step 5] dd date pipe in app.component.html
+		<div > Login Time :: {{today |date:'h:mm:ss a zzzz'}}</div>

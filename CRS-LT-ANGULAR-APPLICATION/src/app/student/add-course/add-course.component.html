@@ -1,0 +1,17 @@
+<form ngForm>
+   <div class="form-group">
+      <label for="courseCode"> Course Code </label>
+      <input type="text" class="form-control" id="courseCode" required [(ngModel)]="courseCode" name="courseCode">
+    </div>
+  
+    <div class="form-group">
+      <label for="studentId"> Student Id </label>
+      <input type="text" class="form-control" id="studentId" [(ngModel)]="studentId" name="studentId">
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary" (click)="addCourse()"> Add Course </button>
+    </div>
+  </form>
+  
+

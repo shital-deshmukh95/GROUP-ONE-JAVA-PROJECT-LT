@@ -1,0 +1,26 @@
+.addSpace{
+
+    margin-top: 100px;
+}
+
+.custom-btn{
+    
+    margin-top: 10px;
+    
+    }
+
+
+
+
+    .container{
+        margin-top: 50px;
+        background-color:rgb(236, 119, 158)
+        
+        }
+        
+        .title-center {
+            flex: 1 1 auto;
+            text-align: center;
+          }
+        
+          

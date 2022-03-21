@@ -1,0 +1,160 @@
+Some Fact of Angular 
+
+1] Angular is UI framework which is develop by google inc.
+
+2] Angular is a MVC framework in which V stands for View ,M stands for model which is in a dataset, C stands for controller which is component
+
+3] We can do databinding in two ways
+      1] One-Way binding (we can do one-way binding using angular expression){{}}
+	  2] Two-Way binding  (We can do two-way binding using ngModel)
+	  
+4]  for development of angular we need install angular
+
+
+5]  Angular support spa (Single Page Application) it basically  bustup the speed up the application and rendering time would be less.
+
+
+6] In Angular , we used various Decorators 
+
+   1. @Component :-- Component Developemnt
+   2. @pipe  :-- pipe Development 
+   3. @Directive :--- Angular Directive 
+   4. @Injectable :--- Service 
+   5. @input / @ouput. :-- exchange the data b/w the comp.
+
+7]  Angulat Event :--> There are two type of Event in Angualr
+  
+    1. Implicite Event (Internal Event). 
+    2. Explicite Event (External Event).
+
+
+ 8]   #:--id
+   <>:-- element 
+   .:--class 
+   []:-- attribute 
+   
+9] We can run the angular application by ng serve and  we can test the angular application by ng test 
+
+10] for the UI/UX development we can integrate various library in angular 
+      1- Bootstrap.
+      2- PrimeNg.
+	  3 -AngularMaterial.
+
+11] 
+
+ C:/> ng new my-project
+
+  create a new project 
+
+ C:/>ng serve  :--- npm start
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+ Description of Folder Structure :--> 
+
+  1. e2e :-- end to end testing.     ng e2e
+                    
+  2. node_module :--> complete dependencies of node module.
+
+  3. src :-- source of your angular Code :--> 
+             
+             app:-- :-- Angular Component Dev. code. 
+			 
+             assets ::-- External Resource like (CSS/img etc).
+             environments:--> setting of env. for Prd/Dev
+
+
+    App :--> There are 5 important file. 
+
+       app.component.ts :---> source code of component. (Angular events and model)
+       app.component.html:-- > Template of COmponent. (we have place all template code inside html )
+       app.component.spec.ts:--> Testing file of component. 
+       app.component.css:---> look & feel of Component. 
+
+  Note ::-- when we create any component in A8 project !its 
+always create 4 important file. 
+
+Note :-- Another file is app.module.ts which is very 
+important file to configure the angular module & component.
+
+note :-- app.routing.module.ts :-- its using for SPA development
+& configuration ---with defined routes.
+
+
+4. index.html :--> its the entry point of application. 
+5.main.ts :-- its also a very important file which is using
+to configure the Angular module . 
+
+6. polyfills.ts :-- its using for browser incompactabilitis 
+ issues for IE 9 --11 etc.
+
+7. Style.css :-- here we refer the global CSS file & its applied to 
+//You can add global styles to this file, and also import other style files */
+
+8.angular.json :--> its contains all the configuration of 
+Angular project with ng description & entry point od module 
+and application.
+
+9.karma.config.ts :-- its a test runner configuration file
+for angular testing env.
+
+10. pacake.json :-- contains all the Ng script & development
+dependiences/dev Dependiences
+
+11. tsconfig.app.json/tsconfig.json :--> 
+its typescript congiguration file & compile option
+to identified the source of comppletation. 
+:-- ES2015 :-- ES6
+
+12. tslint.json :-- its use to lint of your project.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ Flow of App :--> 
+
+1. ng serve :----> check the script from package.json & 
+execute :--- > angular.json --load script again for serve--
+-->load main.ts :---- > its  bootstrap the AppModule--> 
+
+app.module.ts :--> loads the Appcomponent :--> its load
+app.component.html with app-root1 selector which is refer
+to Index.html as JSX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://angular.io/start
+
+
+
+
+
+Usefull Commands 
+
+
+-1 Angular installation 
+npm install -g @angular/cli@11.1.2
+
+ -2 To check angular version 
+	 ng --version
+	 
+ - 3  To create new angular application 
+     ng new LtApp
+	 (we need to select routing and css )
+	
+	
+	
+	http://localhost:4200/

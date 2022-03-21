@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+     class  BasicCal{
+        
+// static implementation
+static cal(num1,num2){
+    let b = new BasicCal();
+    
+    b.substractionMethod(num1,num2);
+    b.multiplicationMethod(num1,num2);
+    b.divisionMethod(num1,num2);
+     b.#additionMethod(num1,num2);
+
+}
+   // Constructor
+          constructor(){
+            
+        console.log("**************BasicCal*********");
+
+          }
+
+        
+#additionMethod(numOne,numTwo){
+              this.result = numOne + numTwo;
+              console.log("Addition :" + this.result);
+              return this.result;
+          }
+
+          substractionMethod(numOne,numTwo){
+            this.result = numOne - numTwo;
+              console.log("Substraction :" + this.result);
+              return this.result;
+          }
+
+
+
+          divisionMethod(numOne,numTwo){
+            this.result = numOne / numTwo;
+              console.log("Division :" + this.result);
+              return this.result;
+          }
+
+
+          multiplicationMethod(numOne,numTwo){
+            this.result = numOne * numTwo;
+              console.log("Multiplication :" + this.result);
+              return this.result;
+          }
+
+
+
+
+     }//BasicCal
+//let ba = new  BasicCal();
+BasicCal.cal(12,120);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  class  ScientificCal{
+constructor(){
+    console.log("**************ScientificCal*********");
+            
+          }
+
+
+            // sin = opposite / hypotenuse
+          sinMethod(opposite,hypotenuse){
+             // this.result = opposite / hypotenuse;
+             this.result = Math.sin(opposite / hypotenuse);
+              console.log("sin :" + this.result);
+              return this.result;
+          }
+
+            // cos = adjacent / hypotenuse
+          cosMethod(adjacent,hypotenuse){
+            //this.result = adjacent/ hypotenuse;
+            this.result = Math.cos(adjacent/ hypotenuse);
+              console.log("Cos :" + this.result);
+              return this.result;
+          }
+
+
+     // cos = opposite / adjacent
+          tanMethod(opposite,adjacent){
+           // this.result = opposite / adjacent;
+           this.result = Math.tan(opposite / adjacent);
+              console.log("Tan  :" + this.result);
+              return this.result;
+          }
+
+
+
+
+        
+     }//ScientificCal
+
+
+               // prototype implementation
+               ScientificCal.prototype.sciCal = function(opposite,adjacent,hypotenuse){
+             console.log("ScientificCal Prototype ....")
+              
+             this.sinMethod(opposite,hypotenuse);
+             this.cosMethod(adjacent,hypotenuse);
+             this.tanMethod(opposite,adjacent);
+               }
+
+
+ let s = new ScientificCal();
+s.sciCal(6,6,10);
+
+
+    </Script>
+
+</body>
+</html>

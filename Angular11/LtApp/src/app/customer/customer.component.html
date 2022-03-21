@@ -1,0 +1,47 @@
+<form ngForm>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="number" class="form-control" id="age" [(ngModel)]="model.age" name="age">
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary" (click)=" createCustomer()"> Submit </button>
+   <button type="submit" class="btn btn-primary" (click)="editCustomer()"> Edit </button> 
+  </div>
+</form>
+
+
+
+<table>
+
+  <tr>
+    <th> Customer Id </th>
+    <th>Name </th>
+    <th>Age </th>
+    <th>Action </th>
+    <th>Action </th>
+  </tr>
+
+  <tr *ngFor="let cust of custArray; let indexValue=index">
+    <th>{{cust.id}} </th>
+    <th>{{cust.name|lowercase}} </th>
+    <th>{{cust.age}} </th>
+    <th><button (click)="selectValue(cust.id)"> Edit </button> </th>
+    <th><button (click)="deleteCustomer(cust.id)"> Delete </button> </th>
+  </tr>
+
+</table>
+
+<!-- 
+    <button type="submit"(click)="getUser()" class="btn btn-danger">Submit</button> 
+    <div>
+      <ol>
+          <li *ngFor='let user of getData'>
+          {{ user.first_name}}<b>||</b> {{user.email}}
+          </li>
+       </ol>
+    </div> -->

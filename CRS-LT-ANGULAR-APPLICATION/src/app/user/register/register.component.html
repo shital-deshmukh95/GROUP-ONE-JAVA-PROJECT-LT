@@ -1,0 +1,62 @@
+
+<div class="container s">
+  <div class="row">
+    <div class="col-sm">
+     
+    </div>
+    <div class="col-sm">
+    
+
+        <form ngForm>
+          <p class="title-center "> Register </p>
+    
+          <div class="form-group">
+            <label for="nameTxt">Student Name </label>
+            <input type="text" class="form-control" id="nameTxt" [(ngModel)]="student.name"   name="nameTxt">
+          </div>
+    
+          <div class="form-group">
+            <label for="addressTxt">Address  </label>
+            <input type="text" class="form-control" id="addressTxt" [(ngModel)]="student.address"    name="addressTxt">
+          </div>
+    
+          <div class="form-group">
+            <label for="agenderBtn"> Gender  </label>
+            <fieldset class="form-control" id="gender" >
+              <label for="M"> MALE  </label>
+             <input type="radio" class="radio" aria-label="Radio button for following text input" [(ngModel)]="student.gender" value="MALE"  name="M"> 
+             <label for="F"> FEMALE  </label>
+             <input type="radio"  class="radio" aria-label="Radio button for following text input"  [(ngModel)]="student.gender" value="FEMALE"  name="F">
+            </fieldset>
+          </div>
+    
+    
+          <div class="form-group">
+            <label for="branchTxt">Branch Name </label>
+            <input type="text" class="form-control" id="branchTxt"  [(ngModel)]="student.branch"  name="branchTxt">
+          </div>
+    
+          <div class="form-group">
+            <label for="batchTxt">Batch  </label>
+            <input type="text" class="form-control" id="branchTxt"   [(ngModel)]="student.batch" name="batchTxt">
+          </div>
+         
+          <div class="form-group">
+            <label for="passwordTxt"> Password </label>
+            <input type="password" class="form-control" id="passwordTxt"  [(ngModel)]="student.password"name="passwordTxt">
+          </div>
+      
+          <div class="col-md-6 custom-btn">
+           <button type="submit" class="btn btn-success" (click)="register()"> Register </button> 
+          </div>
+        </form>
+      
+      </div>
+    
+    <div class="col-sm">
+    
+    </div>
+  </div>
+</div>
+
+

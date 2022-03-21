@@ -1,0 +1,51 @@
+TypeScript 
+
+1]  the typescript itself a javascript which is resolving all overhead and the drawback in the javascript development 
+like 
+     - 1 no data type in java script
+	 - 2 varities method implementation  like method with optional parameter  and default parameter .
+	 - 3 modifier problem in java script . Private is representing by # and public is representing by this.
+	 
+2]  we can resolve all these issue in typescript development .
+      -1 Data type in typescript 
+	  -2 various method implementation in typescript (ptional parameter  and default parameter)	 .
+	  -3 various modifier like  public private protected .
+	  -4  enum implementation in typescript .
+	  -5  interface and generic implementation.
+3] 
+-------------------------------------
+- All the extenstion for typescript  - (ts)
+
+Three type of function in typescript
+ 1] function with optional parameter ---    ?
+ 2] function with default parameter . ---   
+------------------------------------------------
+
+Commands--
+1] npm install 
+npm install -g typescript
+
+2] typescript version
+tsc --version
+
+3] ts code compile 
+tsc demo.ts
+
+
+
+Assignment 1]
+1] Change the complete implementation of ES6 calculator in typescript class base implementation.
+   Use all the  modifier like (public , private , protected,readonly )-- individual assignment 
+   
+  
+
+
+
+
+
+
+
+
+
+
+

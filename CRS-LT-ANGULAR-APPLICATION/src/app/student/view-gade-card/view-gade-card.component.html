@@ -1,0 +1,28 @@
+<div>
+    <div class="table-responsive space">
+        <table class="table display nowrap">
+            <thead>
+                <tr>
+                    <th scope="col">Sr No </th>
+                    <th scope="col">Course Code </th>
+                    <th scope="col">Course Name </th>
+                    <th scope="col">Grade Name </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let viewGreadCard of this.listOfGread; let i=index'>
+                    <th scope="row"> {{i+1}} </th>
+                    <td> {{viewGreadCard.courseCode | uppercase}}</td>
+                    <td> {{viewGreadCard.courseName | uppercase}}</td>
+                    <td> {{viewGreadCard.grade}} </td>
+                    <!-- <td> <button type="button" class="btn btn-primary" (click)="dropCourse(i)">Drop</button></td> -->
+
+                </tr>
+ 
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>

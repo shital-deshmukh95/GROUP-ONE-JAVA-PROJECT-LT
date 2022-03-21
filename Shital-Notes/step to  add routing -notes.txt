@@ -1,0 +1,24 @@
+step to  add routing ---
+step 1] create component inside app folder (home,customer,order)
+        
+step 2] add routers array inside the app.routing.module.ts 
+       const routes: Routes = [
+  { path : '', redirectTo:'home', pathMatch:'full' },
+  { path : 'home',component: HomeComponentComponent},
+  { path : 'customer',component: CustomerComponent},
+  { path : 'order',component: ModelcomponentComponent }
+
+];
+ 
+ 
+ step 3]  inside the app.component.html add routerLink
+ <div>
+<nav>
+<a [routerLink]="['/home']">home</a>||
+<a [routerLink]="['/customer']" > Customer Management </a>|| 
+<a [routerLink]="['/order']" > Order Management </a>|| 
+</nav>
+</div>
+ 
+ 
+  

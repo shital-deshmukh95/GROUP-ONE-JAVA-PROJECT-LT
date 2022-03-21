@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Class Person ..
+  class Person{
+ _test=1000;
+      constructor(name,numOfDays){
+          this.name=name;
+          this.numOfDays=name;
+            console.log("constructor call here -----------------> ")
+            console.log("Name  "+ this.name);
+            console.log(" numOfDays " + this.numOfDays);
+      }
+// Method and property 
+
+getConcateValue(){
+
+    console.log(" getConstructor ----")
+    console.log("constructor call here -----------------> ")
+return this.concatName();
+}
+concatName(){
+    console.log(" concatName ----")
+    return this.name;
+}
+
+ _checkPrivateCallMethod(){
+
+    console.log(" conca_checkPrivateCallMethodtName ----"+ this._test);
+ }
+
+  getPublicCall(){
+return this._checkPrivateCallMethod();
+
+  }
+       
+  }
+// This line will create a instance of Person class
+let p = new Person('Java' , 45 );
+//p.getConcateValue();
+p.getPublicCall();
+    </script>
+
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,21 @@
+step to create  JSON server
+
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>npm init
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>dir.
+
+ C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>npm install -g json-server
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>json-server --version
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>npm install --save json-server
+
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>echo>>users.json
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>echo>>routes.json
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>json-server --port 7000 --routes routes.json --watch users.json
+
+C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\JSON-SERVER-FAKE-API>npm init

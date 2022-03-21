@@ -1,0 +1,9 @@
+{
+    "/customer/list": "/customer",
+    "/customer/get/:id": "/customer/:id",
+    "/customer/create": "/customer",
+    "/customer/update/:id": "/customer/:id",
+    "/customer/delete/:id": "/customer/:id"
+  }
+
+

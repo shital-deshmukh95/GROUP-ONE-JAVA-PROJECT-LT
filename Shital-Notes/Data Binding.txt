@@ -1,0 +1,156 @@
+Today's Agenda
+
+1]  Data Binding in angular using angular express {{}}
+2]  Develop the component and refer one component in to another component
+3]  Angular two-way binding using ngModel(internal diractive over the html page for data binding).
+4]  Angular Form 
+     4.1 Template driven form and 
+     4.2 Reactive Form
+5] Bootstrap intigration
+6] Angular Services
+7] JSON SERVER creation
+------------------------------------------------------
+DemoApplication of Angular MVC 
+1] CustomerManagement
+
+step 1 ] create a customer model inside mycomponent folder
+   use command like  ng g class customer
+  C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\Angular11\LtApp\src\app\mycomponent>ng g class customer
+
+step 2 ]  add this variable inside customer class 
+
+export class Customer {
+
+    // properties 
+	public name:string;
+	public age : number;
+
+	constructor(name:string, age : number){
+		this.name = name;
+		this.age = age;
+	}
+}
+
+
+step 3 ] 
+   inside  mycomponent.ts  file 
+     1] create a customer array
+	    custArray: Array<Customer> = new Array();
+         model = new Customer('', 0);
+    2] create method createCustomer
+	
+	createCustomer() {
+
+    console.log("customer creation here-->");
+    try {
+      // Add customer in Customer Array using push event.
+      this.custArray.push(new Customer(this.model.name, this.model.age));
+      console.log(JSON.stringify(this.custArray));
+      //var a=10/0;
+    } catch (err) {
+      console.log("customer creation here-->" + err);
+    }
+  }
+   
+   3] inside mycomponent.html create a form 
+   
+    <form ngForm>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="model.name" name="name">
+    </div>
+    
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number"  class="form-control" id="age"
+             [(ngModel)]="model.age" name="age">
+    </div>
+    
+      <button type="submit" class="btn btn-primary" (click)=" createCustomer()">Submit</button>
+    </form>
+
+   
+   step 4] import FormModule in app.module.ts
+
+     4.1 import {FormsModule} from '@angular/forms';
+     4.2 register module inside imports 
+	  imports: [//we need to import all external module inside this section.
+        BrowserModule,
+        AppRoutingModule,
+         FormsModule
+       ],
+   
+   
+
+   Angular privide vaious kind of internal diractive which using dom manupulation 
+   
+    -ngModule
+	-ngIf
+	-*ngFor
+	
+	
+   
+   
+   
+   
+   
+
+To install bootstrap 
+
+	1] npm install -g bootstrap
+	
+	2] npm install -save bootstrap
+	
+	3] add import inside the style.css  --(Global Css)
+	   @import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+
+
+
+
+
+
+
+important link : 
+
+https://getbootstrap.com/docs/5.1/forms/form-control/
+
+
+
+
+
+
+
+
+
+
+1] Data binding -
+  step 1] inside app.component.ts create one variable 
+   title = 'Welcome L&T';
+  step 2] bind title  inside app.component.html
+    <span>{{ title }} app is running!</span>
+2]  writing event 
+    step 1] create one method inside the app.component.ts 
+	
+  onClickMe() {
+    this.clickMessage = 'i am in Training! changed msg';
+  }
+  
+  step 2 ] call that onClickMe  on app.component.html 
+  
+  <div>
+  <button (click)="onClickMe()">Click me!</button>
+  {{clickMessage}}
+  </div>
+  
+  3] genrate new component
+  step 1 open command prompt > go inside C:\Users\user215\Java FullStack workspace\Angular Workspace\AngularTraning\Angular11\LtApp\src\app>
+       ng g component myComponent
+	   
+	   step 2 --Register myComponent inside app.component.html copy the selector name from app-mycomponent.component.ts
+	         make a element like <app-mycomponent> </app-mycomponent> inside app.component.html
+  
+			

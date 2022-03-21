@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="user.component.css">
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+     
+    </div>
+    
+      <div class=" col-sm container addSpace">
+        <form ngForm>
+            <p class="title-center"> Sign UP </p>
+        
+            <div class="form-group">
+              <label for="userTxt">User</label>
+              <input type="text" class="form-control" id="userTxt" required [(ngModel)]="user.userId"   name="userTxt">
+            </div>
+           
+            <div class="form-group">
+              <label for="passwordTxt"> Password </label>
+              <input type="password" class="form-control" id="passwordTxt" required [(ngModel)]="user.password"  name="passwordTxt">
+            </div>
+        
+            <div class="col-md-6 custom-btn">
+             <button type="submit" class="btn btn-success" [routerLink]="['/student']"  (click)="login()"> Login </button> 
+            
+            </div>
+          </form>
+        
+        
+        
+          </div>
+        
+    <div class="col-sm">
+      
+    </div>
+  </div>
+</div>
+
+  <div>{{loginMessage}} </div>
+
+
+  
